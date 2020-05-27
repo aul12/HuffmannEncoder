@@ -12,8 +12,12 @@
 #include "BTree.hpp"
 
 namespace huffman {
-    using Elem = std::pair<std::optional<char>, float>;
-    using Tree = BTree<Elem>;
+    struct HuffmannElem {
+        std::optional<char> character{};
+        float prob{};
+    };
+
+    using Tree = BTree<HuffmannElem>;
 
     auto build(const std::map<char, float> &probs) -> Tree;
 

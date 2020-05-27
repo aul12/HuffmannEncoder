@@ -18,19 +18,18 @@ namespace huffman {
         nodes.reserve(probs.size());
 
         for (const auto &[c, p] : probs) {
-            nodes.emplace_back(std::make_pair(c, p));
+            nodes.emplace_back(HuffmannElem{c, p});
         }
 
         while (nodes.size() >= 2) {
             std::sort(nodes.begin(), nodes.end(),
                       [](const auto &a, const auto &b) {
-                          return a.get().second < b.get().second;
+                          return a.get().prob < b.get().prob;
                       });
 
             const auto &l = nodes[0];
             const auto &r = nodes[1];
-            const auto elem = std::make_pair<Elem::first_type, Elem::second_type>(std::nullopt,
-                                                                            l.get().second + r.get().second);
+            const HuffmannElem elem{std::nullopt, l.get().prob + r.get().prob};
             const auto lPtr = std::make_shared<Tree>(l);
             const auto rPtr = std::make_shared<Tree>(r);
 
@@ -44,7 +43,7 @@ namespace huffman {
 
     auto getMapping(const Tree &tree, const std::string &prefix) -> std::map<char, std::string> {
         if (tree.leaf()) {
-            return std::map<char, std::string>{{tree.get().first.value(), prefix}};
+            return std::map<char, std::string>{{tree.get().character.value(), prefix}};
         } else {
             const auto lMap = getMapping(*tree.left(), prefix+"0");
             const auto rMap = getMapping(*tree.right(), prefix+"1");
