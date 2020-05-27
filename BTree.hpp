@@ -47,7 +47,6 @@ class BTree {
     private:
         T elem;
         std::optional<std::pair<child_ptr, child_ptr>> children;
-
 };
 
 #endif //HUFFMAN_BTREE_HPP

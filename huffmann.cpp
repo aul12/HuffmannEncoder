@@ -39,7 +39,7 @@ namespace huffman {
             nodes.emplace_back(combined);
         }
 
-        return std::move(nodes.front());
+        return nodes.front();
     }
 
     auto getMapping(const Tree &tree, const std::string &prefix) -> std::map<char, std::string> {
