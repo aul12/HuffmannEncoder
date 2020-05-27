@@ -10,6 +10,10 @@
 
 namespace huffman {
     auto build(const std::map<char, float> &probs) -> huffman::Tree {
+        if (probs.empty()) {
+            throw std::runtime_error{"probs not a valid PDF"};
+        }
+
         std::vector<Tree> nodes;
         nodes.reserve(probs.size());
 

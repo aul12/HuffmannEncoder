@@ -21,6 +21,10 @@ namespace util {
             count += 1;
         }
 
+        if (count == 0) {
+            throw std::runtime_error{"File empty!"};
+        }
+
         for (auto &[c, p] : res) {
             p /= count;
         }
