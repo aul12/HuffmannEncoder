@@ -14,4 +14,9 @@ else()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
 endif ()
 
-add_executable(${PROJECT_NAME} main.cpp util.cpp huffmann.cpp)
+set(SOURCES
+        ${CMAKE_SOURCE_DIR}/util.cpp
+        ${CMAKE_SOURCE_DIR}/huffmann.cpp)
+
+add_executable(${PROJECT_NAME} main.cpp ${SOURCES})
+add_subdirectory(Tests)
