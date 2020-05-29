@@ -37,6 +37,7 @@ TEST(huffman, build_complex) {
     };
 
     auto tree = huffman::build(probs);
+
     ASSERT_FALSE(tree.leaf());
     EXPECT_FLOAT_EQ(tree.get().prob, 1.0);
 
@@ -102,4 +103,5 @@ TEST(huffman, mapping_complex) {
     EXPECT_NE(mapping['a'], mapping['b']);
     EXPECT_NE(mapping['a'][0], mapping['c'][0]); // Prefix
     EXPECT_NE(mapping['b'][0], mapping['c'][0]);
+    EXPECT_EQ(mapping['a'][0], mapping['b'][0]);
 }
