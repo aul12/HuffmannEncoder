@@ -70,8 +70,8 @@ TEST(huffman, build_complex) {
 }
 
 TEST(huffman, mapping_simple) {
-    auto leaf0 = std::make_shared<huffman::Tree>(huffman::HuffmannElem{'a', 0.5});
-    auto leaf1 = std::make_shared<huffman::Tree>(huffman::HuffmannElem{'b', 0.5});
+    auto leaf0 = std::make_shared<huffman::Tree>(huffman::HuffmanElem{'a', 0.5});
+    auto leaf1 = std::make_shared<huffman::Tree>(huffman::HuffmanElem{'b', 0.5});
     huffman::Tree root{{std::nullopt, 1.0}, leaf0, leaf1};
 
     auto mapping = huffman::getMapping(root);
@@ -85,11 +85,11 @@ TEST(huffman, mapping_simple) {
 }
 
 TEST(huffman, mapping_complex) {
-    auto leaf00 = std::make_shared<huffman::Tree>(huffman::HuffmannElem{'a', 0.25});
-    auto leaf01 = std::make_shared<huffman::Tree>(huffman::HuffmannElem{'b', 0.25});
-    auto leaf0 = std::make_shared<huffman::Tree>(huffman::HuffmannElem{'c', 0.5});
-    auto leaf1 = std::make_shared<huffman::Tree>(huffman::HuffmannElem{std::nullopt, 0.5}, leaf00, leaf01);
-    huffman::Tree root{huffman::HuffmannElem{std::nullopt, 1.0}, leaf0, leaf1};
+    auto leaf00 = std::make_shared<huffman::Tree>(huffman::HuffmanElem{'a', 0.25});
+    auto leaf01 = std::make_shared<huffman::Tree>(huffman::HuffmanElem{'b', 0.25});
+    auto leaf0 = std::make_shared<huffman::Tree>(huffman::HuffmanElem{'c', 0.5});
+    auto leaf1 = std::make_shared<huffman::Tree>(huffman::HuffmanElem{std::nullopt, 0.5}, leaf00, leaf01);
+    huffman::Tree root{huffman::HuffmanElem{std::nullopt, 1.0}, leaf0, leaf1};
 
     auto mapping = huffman::getMapping(root);
     ASSERT_NE(mapping.find('a'), mapping.end());

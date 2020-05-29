@@ -2,7 +2,7 @@
  * @file huffmann.cpp
  * @author paul
  * @date 27.05.20
- * Description here TODO
+ * Implementation of the huffman namespace
  */
 #include "huffman.hpp"
 
@@ -18,7 +18,7 @@ namespace huffman {
         nodes.reserve(probs.size());
 
         for (const auto &[c, p] : probs) {
-            nodes.emplace_back(HuffmannElem{c, p});
+            nodes.emplace_back(HuffmanElem{c, p});
         }
 
         while (nodes.size() >= 2) {
@@ -29,7 +29,7 @@ namespace huffman {
 
             const auto &l = nodes[0];
             const auto &r = nodes[1];
-            const HuffmannElem elem{std::nullopt, l.get().prob + r.get().prob};
+            const HuffmanElem elem{std::nullopt, l.get().prob + r.get().prob};
             const auto lPtr = std::make_shared<Tree>(l);
             const auto rPtr = std::make_shared<Tree>(r);
 

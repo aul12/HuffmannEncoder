@@ -2,7 +2,7 @@
  * @file util.cpp
  * @author paul
  * @date 27.05.20
- * Description here TODO
+ * Implementation of the util namespace.
  */
 #include <fstream>
 #include "util.hpp"
