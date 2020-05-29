@@ -32,14 +32,6 @@ class BTree {
             return children.value().second;
         }
 
-        [[nodiscard]] auto depth() const -> std::size_t {
-            if (children.has_value()) {
-                return std::max(left()->depth(), right()->depth()) + 1;
-            } else {
-                return 0;
-            }
-        }
-
         [[nodiscard]] auto leaf() const -> bool {
             return !children.has_value();
         }
