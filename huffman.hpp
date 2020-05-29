@@ -4,8 +4,8 @@
  * @date 27.05.20
  * Description here TODO
  */
-#ifndef HUFFMAN_HUFFMANN_HPP
-#define HUFFMAN_HUFFMANN_HPP
+#ifndef HUFFMAN_HUFFMAN_HPP
+#define HUFFMAN_HUFFMAN_HPP
 
 #include <map>
 
@@ -24,4 +24,4 @@ namespace huffman {
     auto getMapping(const Tree &tree, const std::string &prefix = "") -> std::map<char, std::string>;
 }
 
-#endif //HUFFMAN_HUFFMANN_HPP
+#endif //HUFFMAN_HUFFMAN_HPP

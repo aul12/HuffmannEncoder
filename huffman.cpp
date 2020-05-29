@@ -4,7 +4,7 @@
  * @date 27.05.20
  * Description here TODO
  */
-#include "huffmann.hpp"
+#include "huffman.hpp"
 
 #include <vector>
 

@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include "util.hpp"
-#include "huffmann.hpp"
+#include "huffman.hpp"
 
 int main() {
     const auto probs = util::buildHist("main.cpp");

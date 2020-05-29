@@ -5,7 +5,7 @@ find_package(GTest)
 if (GTest_FOUND)
     include_directories(${GTEST_INCLUDE_DIR})
 
-    set(TEST_SOURCES BTree.cpp huffmann.cpp)
+    set(TEST_SOURCES BTree.cpp huffman.cpp)
 
     add_executable(${PROJECT_NAME} main.cpp ${SOURCES} ${TEST_SOURCES})
 

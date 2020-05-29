@@ -16,7 +16,7 @@ endif ()
 
 set(SOURCES
         ${CMAKE_SOURCE_DIR}/util.cpp
-        ${CMAKE_SOURCE_DIR}/huffmann.cpp)
+        ${CMAKE_SOURCE_DIR}/huffman.cpp)
 
 add_executable(${PROJECT_NAME} main.cpp ${SOURCES})
 add_subdirectory(Tests)
