@@ -3,16 +3,11 @@ project(Tests)
 enable_testing()
 find_package(GTest)
 if (GTest_FOUND)
-    include_directories(${GTEST_INCLUDE_DIR})
-
     set(TEST_SOURCES BTree.cpp huffman.cpp)
 
-    add_executable(${PROJECT_NAME} main.cpp ${SOURCES} ${TEST_SOURCES})
+    add_executable(${PROJECT_NAME} ${SOURCES} ${TEST_SOURCES})
 
-    target_link_libraries(${PROJECT_NAME} gmock gtest pthread)
+    target_link_libraries(${PROJECT_NAME} GTest::GTest GTest::Main)
 
-    add_test(
-            NAME ${PROJECT_NAME}
-            COMMAND ${PROJECT_NAME}
-    )
-endif()
+    gtest_discover_tests(${PROJECT_NAME})
+endif ()
